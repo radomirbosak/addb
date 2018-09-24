@@ -1,12 +1,24 @@
+#!/usr/bin/env
+# -*- coding: utf-8 -*-
+
+import os
+
 from setuptools import setup
+
+
+here = os.path.abspath(os.path.dirname(__file__))
+
+about = {}
+with open(os.path.join(here, 'addb', '__version__.py'), 'r', encoding='utf-8') as f:
+    exec(f.read(), about)
 
 
 setup(
     name='addb',
     py_modules=['addb'],
     entry_points={
-        'console_scripts': ['addb = addb:main', ],
+        'console_scripts': ['addb = addb.main:main', ],
     },
     install_requires=[],
-    version='0.0.1',
+    version=about['__version__'],
 )
