@@ -50,6 +50,11 @@ Open anime in browser
 $ addb watch yamada
 ```
 
+Remove anime from database
+```console
+$ add remove yamada-kun
+```
+
 ## Installation ##
 
 ```console
