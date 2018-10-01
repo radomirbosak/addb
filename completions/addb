@@ -1,0 +1,72 @@
+_addb () {
+    COMPREPLY=()
+    local IFS=$' \n'
+    local cur=$2 prev=$3
+    local firstword
+
+    local -a cmds all_opts
+
+    firstword=$(_addb_get_firstword)
+
+    cmds=(
+        export
+        list
+        add
+        watch
+        remove
+        update
+        edit
+    )
+
+    # Completions based on a specific previous word
+    case "$prev" in
+        add|--full-name|--alias|--watch-url)
+            return 1
+            ;;
+        watch|remove|update|edit)
+            COMPREPLY=( $(compgen -W "$(addb list --raw-alias-list)" -- "$cur") )
+            return 0
+            ;;
+        --status)
+            COMPREPLY=( $(compgen -W "unwatched watching watched dropped" -- "$cur") )
+            return 0
+            ;;
+    esac
+
+    # subcommand-specific completions
+    case "$firstword" in
+        export|watch|remove|update)
+            COMPREPLY=( $(compgen -W "-h --help" -- "$cur") )
+            return 0
+            ;;
+        list)
+            COMPREPLY=( $(compgen -W "-h --help --raw-alias-list" -- "$cur") )
+            return 0
+            ;;
+        add|edit)
+            COMPREPLY=( $(compgen -W "-h --help --full-name --alias --status --watch-url" -- "$cur") )
+            return 0
+            ;;
+        *)
+            all_opts=( -h --help -V --version -C --cache "${cmds[@]}" )
+            COMPREPLY=( $(compgen -W "${all_opts[*]}" -- "$cur") )
+            return 0
+            ;;
+    esac
+}
+
+_addb_get_firstword() {
+    local firstword i
+
+    firstword=
+    for ((i = 1; i < ${#COMP_WORDS[@]}; ++i)); do
+        if [[ ${COMP_WORDS[i]} != -* ]]; then
+            firstword=${COMP_WORDS[i]}
+            break
+        fi
+    done
+
+    echo $firstword
+}
+
+complete -F _addb addb

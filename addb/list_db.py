@@ -12,6 +12,15 @@ def list_db(args):
 
     table = []
 
+    # is the switch is present, print only names and aliases
+    if hasattr(args, 'raw_alias_list') and args.raw_alias_list:
+        for anime in cache['anime']:
+            print(anime['name'])
+            for alias in anime['alias']:
+                print(alias)
+        return
+
+    # print a nice table
     for idx, anime in enumerate(cache['anime'], 1):
         row = [
             str(idx) + '.',

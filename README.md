@@ -77,5 +77,11 @@ $ addb edit yamada --status watched --full-name "Yamada-kun to 7-nin no Majo"
 ```console
 $ git clone https://github.com/radomirbosak/addb.git
 $ cd addb
-$ pip3 install .
+$ pip3 install --user .
+```
+
+Install bash completion (sudo needed for accessing `/etc/bash_completion.d/`)
+
+```console
+$ sudo make completions-install-bash
 ```
