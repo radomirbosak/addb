@@ -15,12 +15,12 @@ with open(os.path.join(here, 'addb', '__version__.py'), 'r', encoding='utf-8') a
 
 setup(
     name='addb',
-    py_modules=['addb'],
     entry_points={
         'console_scripts': ['addb = addb.main:main', ],
     },
     install_requires=[
         "pyxdg",
     ],
+    packages=['addb'],
     version=about['__version__'],
 )
