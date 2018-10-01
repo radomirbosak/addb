@@ -50,7 +50,7 @@ def save_cache(cache, filename=None):
     filename = _determine_cache_filename(filename)
 
     with open(filename, 'w') as fd:
-        json.dump(cache, filename)
+        json.dump(cache, fd)
 
 
 def new_cache():
