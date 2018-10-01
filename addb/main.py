@@ -2,11 +2,11 @@
 
 import sys
 import json
-
+import webbrowser
 
 from .__version__ import __version__
 from .cli import parse_args
-from .cache import load_cache
+from .cache import load_cache, find_anime
 from .list_db import list_db
 from .add import add
 
@@ -14,6 +14,19 @@ from .add import add
 def export(args):
     cache = load_cache(args.cache)
     print(json.dumps(cache, indent=4, sort_keys=True))
+
+
+def watch(args):
+    cache = load_cache(args.cache)
+    anime = find_anime(args.name, cache)
+    if anime is None:
+        print('Anime not found.')
+        sys.exit(1)
+    elif anime.get('watch_url') is None:
+        print('There is no watch url associated with this anime.')
+        sys.exit(1)
+
+    webbrowser.open(anime['watch_url'])
 
 
 def main():
@@ -33,6 +46,8 @@ def main():
         export(args)
     elif args.action == 'add':
         add(args)
+    elif args.action == 'watch':
+        watch(args)
     elif args.action in ['list', None]:
         list_db(args)
 

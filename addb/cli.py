@@ -31,4 +31,8 @@ def parse_args():
                           help='Anime/drama status')
     subp_add.add_argument('--watch-url', help='Url with the anime/drama stream')
 
+    subp_watch = subparsers.add_parser('watch', help='Open the anime/drama watch-url '
+                                                     'in a web browser')
+    subp_watch.add_argument('name', help='Anime name or alias')
+
     return parser.parse_args()

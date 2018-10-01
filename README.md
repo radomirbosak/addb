@@ -45,6 +45,11 @@ $ addb add yamada \
     --watch-url "https://www1.9anime.to/watch/yamada-kun-and-the-seven-witches.kw99"
 ```
 
+Open anime in browser
+```console
+$ addb watch yamada
+```
+
 ## Installation ##
 
 ```console
