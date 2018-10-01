@@ -61,6 +61,33 @@ def update(args):
     save_cache(cache, args.cache)
 
 
+def edit(args):
+    cache = load_cache(args.cache)
+    anime = find_anime(args.name, cache)
+
+    if anime is None:
+        print('Anime not found.')
+        sys.exit(1)
+
+    if args.alias is not None:
+        anime['alias'] = args.alias
+        print('Aliases changed to: ' + ', '.join(args.alias))
+
+    if args.status is not None:
+        anime['status'] = args.status
+        print(f'Status changed to: {args.status}')
+
+    if args.full_name is not None:
+        anime['full_name'] = args.full_name
+        print(f'Full name changed to: {args.full_name}')
+
+    if args.watch_url is not None:
+        anime['watch_url'] = args.watch_url
+        print(f'Watch url changed to: {args.watch_url}')
+
+    save_cache(cache, args.cache)
+
+
 def main():
     """
     Main program entry point
@@ -84,6 +111,8 @@ def main():
         remove(args)
     elif args.action == 'update':
         update(args)
+    elif args.action == 'edit':
+        edit(args)
     elif args.action in ['list', None]:
         list_db(args)
 

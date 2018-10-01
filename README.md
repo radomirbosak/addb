@@ -66,6 +66,12 @@ Anime/drama "Yamada-kun and the Seven Witches" is now at episode 13
 $ addb update yamada 4
 Anime/drama "Yamada-kun and the Seven Witches" is now at episode 4
 ```
+
+Edit anime/drama info
+```console
+$ addb edit yamada --status watched --full-name "Yamada-kun to 7-nin no Majo"
+```
+
 ## Installation ##
 
 ```console
