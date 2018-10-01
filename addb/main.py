@@ -6,7 +6,7 @@ import webbrowser
 
 from .__version__ import __version__
 from .cli import parse_args
-from .cache import load_cache, find_anime
+from .cache import load_cache, find_anime, save_cache
 from .list_db import list_db
 from .add import add
 
@@ -29,6 +29,18 @@ def watch(args):
     webbrowser.open(anime['watch_url'])
 
 
+def remove(args):
+    cache = load_cache(args.cache)
+    anime = find_anime(args.name, cache)
+    if anime is None:
+        print('Anime not found.')
+        sys.exit(1)
+
+    cache['anime'].remove(anime)
+
+    save_cache(cache, args.cache)
+
+
 def main():
     """
     Main program entry point
@@ -48,6 +60,8 @@ def main():
         add(args)
     elif args.action == 'watch':
         watch(args)
+    elif args.action == 'remove':
+        remove(args)
     elif args.action in ['list', None]:
         list_db(args)
 
