@@ -22,7 +22,7 @@ def watch(args):
     if anime is None:
         print('Anime not found.')
         sys.exit(1)
-    elif anime.get('watch_url') is None:
+    elif not anime.get('watch_url'):
         print('There is no watch url associated with this anime.')
         sys.exit(1)
 
