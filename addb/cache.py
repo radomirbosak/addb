@@ -35,7 +35,7 @@ def load_cache(filename=None):
         with open(filename, 'r') as fd:
             return json.load(fp)
     except FileNotFoundError:
-        return {}
+        return new_cache()
 
 
 def save_cache(cache, filename=None):
@@ -50,3 +50,12 @@ def save_cache(cache, filename=None):
 
     with open(filename, 'w') as fd:
         json.dump(cache, filename)
+
+
+def new_cache():
+    """
+    Generate a new cache object with empty structure
+
+    Return: cache dict
+    """
+    return {"anime": []}
