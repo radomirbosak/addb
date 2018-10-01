@@ -29,11 +29,20 @@ $ addb export
 
 List anime/drama
 ```console
-$ addb
+$ addb  # or
+$ addb list
 nr.  Name                              Status     Progress
 ===  ================================  =========  ========
 1.   Yamada-kun and the Seven Witches  watching   11
 2.   Keijo!!!!!!!!                     watching   4
+```
+
+Use a different database/cache file
+```console
+$ addb --cache /tmp/dorama
+nr.  Name                              Status    Progress
+===  ================================  ========  ========
+1.   GeGeGe no Nyōbō                   Watching  13
 ```
 
 Add new anime/drama
