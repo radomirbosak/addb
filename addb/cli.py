@@ -14,5 +14,6 @@ def parse_args():
     subparsers = parser.add_subparsers(dest='action')
 
     subp_exp = subparsers.add_parser('export', help='Export anime/drama database')
+    subp_list = subparsers.add_parser('list', help='List anime/dramas in database')
 
     return parser.parse_args()
