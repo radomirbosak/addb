@@ -19,6 +19,8 @@ setup(
     entry_points={
         'console_scripts': ['addb = addb.main:main', ],
     },
-    install_requires=[],
+    install_requires=[
+        "pyxdg",
+    ],
     version=about['__version__'],
 )
