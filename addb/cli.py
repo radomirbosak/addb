@@ -49,4 +49,16 @@ def parse_args():
                                   'If not specified, the number of watched episodes '
                                   'is incremented by 1.')
 
+    # edit command
+    subp_edit = subparsers.add_parser('edit', help='Edit anime/drama properties')
+    subp_edit.add_argument('name', help='Anime name or alias')
+    subp_edit.add_argument('--full-name', help='Full anime/drama name')
+    subp_edit.add_argument('--alias', action='append',
+                          help='Alternative name for anime/drama. Can be specified '
+                               'multiple times.')
+    subp_edit.add_argument('--status',
+                          choices=['unwatched', 'watching', 'watched', 'dropped'],
+                          help='Anime/drama status')
+    subp_edit.add_argument('--watch-url', help='Url with the anime/drama stream')
+
     return parser.parse_args()
