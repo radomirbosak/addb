@@ -1,6 +1,7 @@
 # -*- config: utf-8 -*-
 
 import os
+import json
 
 from xdg.BaseDirectory import xdg_cache_home
 
@@ -33,7 +34,7 @@ def load_cache(filename=None):
 
     try:
         with open(filename, 'r') as fd:
-            return json.load(fp)
+            return json.load(fd)
     except FileNotFoundError:
         return new_cache()
 
