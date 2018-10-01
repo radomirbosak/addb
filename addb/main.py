@@ -7,6 +7,7 @@ import json
 from .__version__ import __version__
 from .cli import parse_args
 from .cache import load_cache
+from .list_db import list_db
 
 
 def export(args):
@@ -29,6 +30,8 @@ def main():
         sys.exit(0)
     elif args.action == 'export':
         export(args)
+    elif args.action in ['list', None]:
+        list_db(args)
 
 
 if __name__ == '__main__':
