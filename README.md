@@ -27,6 +27,24 @@ $ addb export
 }
 ```
 
+List anime
+```console
+$ addb
+nr.  Name                              Status     Progress
+===  ================================  =========  ========
+1.   Yamada-kun and the Seven Witches  watching   11
+2.   Keijo!!!!!!!!                     watching   4
+```
+
+Add new anime
+```console
+$ addb add yamada \
+	--full-name "Yamada-kun and the Seven Witches" \
+	--status watching \
+	--alias yamadakun --alias yamada-kun \
+	--watch-url "https://www1.9anime.to/watch/yamada-kun-and-the-seven-witches.kw99"
+```
+
 ## Installation ##
 
 ```console
