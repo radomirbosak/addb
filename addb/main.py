@@ -41,6 +41,25 @@ def remove(args):
     save_cache(cache, args.cache)
 
 
+def update(args):
+    cache = load_cache(args.cache)
+    anime = find_anime(args.name, cache)
+    if anime is None:
+        print('Anime not found.')
+        sys.exit(1)
+
+    if args.episode is None:
+        anime['progress'] += 1
+    else:
+        anime['progress'] = int(args.episode)
+
+    anime_name = anime['full_name'] or anime['name']
+
+    print(f'Anime/drama "{anime_name}" is now at episode {anime["progress"]}')
+
+    save_cache(cache, args.cache)
+
+
 def main():
     """
     Main program entry point
@@ -62,6 +81,8 @@ def main():
         watch(args)
     elif args.action == 'remove':
         remove(args)
+    elif args.action == 'update':
+        update(args)
     elif args.action in ['list', None]:
         list_db(args)
 

@@ -40,4 +40,13 @@ def parse_args():
     subp_remove = subparsers.add_parser('remove', help='Remove anime/drama from DB')
     subp_remove.add_argument('name', help='Anime name or alias')
 
+    # update command
+    subp_update = subparsers.add_parser('update',
+                                        help='Set the number of watched episodes')
+    subp_update.add_argument('name', help='Anime name or alias')
+    subp_update.add_argument('episode', nargs='?',
+                             help='Optional. The number of last watched episode. '
+                                  'If not specified, the number of watched episodes '
+                                  'is incremented by 1.')
+
     return parser.parse_args()

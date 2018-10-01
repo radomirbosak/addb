@@ -27,7 +27,7 @@ $ addb export
 }
 ```
 
-List anime
+List anime/drama
 ```console
 $ addb
 nr.  Name                              Status     Progress
@@ -36,7 +36,7 @@ nr.  Name                              Status     Progress
 2.   Keijo!!!!!!!!                     watching   4
 ```
 
-Add new anime
+Add new anime/drama
 ```console
 $ addb add yamada \
     --full-name "Yamada-kun and the Seven Witches" \
@@ -45,16 +45,27 @@ $ addb add yamada \
     --watch-url "https://www1.9anime.to/watch/yamada-kun-and-the-seven-witches.kw99"
 ```
 
-Open anime in browser
+Open anime/drama in browser
 ```console
 $ addb watch yamada
 ```
 
-Remove anime from database
+Remove anime/drama from database
 ```console
-$ add remove yamada-kun
+$ addb remove yamada-kun
 ```
 
+Update anime/drama progress
+```console
+$ addb update yamada
+Anime/drama "Yamada-kun and the Seven Witches" is now at episode 12
+
+$ addb update yamada
+Anime/drama "Yamada-kun and the Seven Witches" is now at episode 13
+
+$ addb update yamada 4
+Anime/drama "Yamada-kun and the Seven Witches" is now at episode 4
+```
 ## Installation ##
 
 ```console
