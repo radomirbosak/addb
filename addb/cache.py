@@ -60,3 +60,13 @@ def new_cache():
     Return: cache dict
     """
     return {"anime": []}
+
+
+def find_anime(name_or_alias, cache):
+    existing_names = {}
+    for anime in cache['anime']:
+        existing_names[anime['name']] = anime
+        for alias in anime.get('alias', []):
+            existing_names[alias] = anime
+
+    return existing_names.get(name_or_alias)
