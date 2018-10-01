@@ -15,8 +15,8 @@ def list_db(args):
     for idx, anime in enumerate(cache['anime'], 1):
         row = [
             str(idx) + '.',
-            anime['full_name'],
-            anime['status'],
+            anime['full_name'] or 'N/A',
+            anime['status'] or 'N/A',
             str(anime['progress'])
         ]
         table.append(row)
