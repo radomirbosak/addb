@@ -21,6 +21,9 @@ def parse_args():
     subp_list.add_argument('--raw-alias-list', action='store_true',
                            help='Print only anime names and aliases, one per each '
                                 'line. Useful for shell completion.')
+    subp_list.add_argument('--raw-alias-list-desc', action='store_true',
+                           help='List anime names and aliases for fish shell '
+                                'completion.')
 
     # add command
     subp_add = subparsers.add_parser('add', help='Add anime/drama to database')

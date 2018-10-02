@@ -20,6 +20,15 @@ def list_db(args):
                 print(alias)
         return
 
+    if hasattr(args, 'raw_alias_list_desc') and args.raw_alias_list_desc:
+        for anime in cache['anime']:
+
+            description = '\t' + anime['full_name'] if anime['full_name'] else ''
+            print(anime['name'] + description)
+            for alias in anime['alias']:
+                print(alias + description)
+        return
+
     # print a nice table
     for idx, anime in enumerate(cache['anime'], 1):
         row = [

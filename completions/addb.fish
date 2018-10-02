@@ -42,9 +42,10 @@ complete -c addb -n '__fish_use_subcommand' -xa remove --description "Remove ani
 complete -c addb -n '__fish_use_subcommand' -xa update --description "Set the number of watched episodes"
 complete -c addb -n '__fish_use_subcommand' -xa edit --description "Edit anime/drama properties"
 
-complete -c addb -n '__fish_addb_alias_ok' -a "(command addb list --raw-alias-list)"
+complete -c addb -n '__fish_addb_alias_ok' -a "(command addb list --raw-alias-list-desc)"
 
-complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list --description 'Print only anime names and aliases'
+complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list --description 'Helper function for bash completion'
+complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list-desc --description 'Helper function for fish completion'
 
 complete -c addb -n 'contains add (commandline -poc)' -l full-name --description 'Full anime/drama name'
 complete -c addb -n 'contains add (commandline -poc)' -l alias --description 'Alternative name'
