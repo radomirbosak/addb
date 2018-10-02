@@ -94,3 +94,9 @@ Install bash completion (sudo needed for accessing `/etc/bash_completion.d/`)
 ```console
 $ sudo make completions-install-bash
 ```
+
+Install fish completion
+
+```console
+$ make completions-install-fish
+```
