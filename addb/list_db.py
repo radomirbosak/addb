@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .cache import load_cache
-from .table import _show_table
+from .table import show_table
 
 
 def list_db(args):
@@ -40,4 +40,4 @@ def list_db(args):
         ]
         table.append(row)
 
-    _show_table(table, headers=headers)
+    show_table(table, headers=headers)

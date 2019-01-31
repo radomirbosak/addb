@@ -3,7 +3,7 @@
 import subprocess
 
 
-def _show_table(table, headers=None):
+def show_table(table, headers=None):
     """
     Print a 2d matrix of strings as a nice table (with header bars)
 
