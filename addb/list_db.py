@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import subprocess
+
 from .cache import load_cache
 
 
@@ -68,3 +70,8 @@ def _show_table(table, headers=None):
         for cell, maxlen in zip(row, col_lens):
             print(cell.ljust(maxlen), end='  ')
         print('')
+
+
+def _get_terminal_size():
+    rows, columns = subprocess.check_output(['stty', 'size']).split()
+    return rows, columns
