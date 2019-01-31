@@ -31,6 +31,6 @@ def show_table(table, headers=None):
         print('')
 
 
-def _get_terminal_size():
+def get_terminal_size():
     rows, columns = subprocess.check_output(['stty', 'size']).split()
     return rows, columns
