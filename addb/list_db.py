@@ -3,6 +3,9 @@
 from .cache import load_cache
 
 
+MAX_NAME_LENGTH = 42
+
+
 def list_db(args):
     """
     List entries in anime/drama database
@@ -31,9 +34,11 @@ def list_db(args):
 
     # print a nice table
     for idx, anime in enumerate(cache['anime'], 1):
+        full_name = _shorten_name(anime['full_name'] or 'N/A',
+                                  max_length=MAX_NAME_LENGTH)
         row = [
             str(idx) + '.',
-            anime['full_name'] or 'N/A',
+            full_name,
             anime['status'] or 'N/A',
             str(anime['progress'])
         ]
@@ -68,3 +73,10 @@ def _show_table(table, headers=None):
         for cell, maxlen in zip(row, col_lens):
             print(cell.ljust(maxlen), end='  ')
         print('')
+
+
+def _shorten_name(name, max_length=None, shortener=' ...'):
+    if not max_length or len(name) <= max_length:
+        return name
+
+    return name[:max_length - len(shortener)] + shortener
