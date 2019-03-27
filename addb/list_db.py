@@ -13,8 +13,6 @@ def list_db(args):
     cache = load_cache(args.cache)
     headers = ['nr.', 'Name', 'Status', 'Progress']
 
-    table = []
-
     # is the switch is present, print only names and aliases
     if hasattr(args, 'raw_alias_list') and args.raw_alias_list:
         for anime in cache['anime']:
@@ -33,6 +31,7 @@ def list_db(args):
         return
 
     # print a nice table
+    table = []
     for idx, anime in enumerate(cache['anime'], 1):
         full_name = _shorten_name(anime['full_name'] or 'N/A',
                                   max_length=MAX_NAME_LENGTH)
