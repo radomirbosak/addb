@@ -13,6 +13,14 @@ def list_db(args):
     cache = load_cache(args.cache)
     headers = ['nr.', 'Name', 'Status', 'Progress']
 
+    # filter anime/drama by status
+    if not args.status == 'all':
+        newlist = []
+        for anime in cache['anime']:
+            if anime['status'] == args.status:
+                newlist.append(anime)
+        cache['anime'] = newlist
+
     # is the switch is present, print only names and aliases
     if hasattr(args, 'raw_alias_list') and args.raw_alias_list:
         for anime in cache['anime']:

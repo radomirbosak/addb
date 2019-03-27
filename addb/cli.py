@@ -18,6 +18,10 @@ def parse_args():
 
     # list command
     subp_list = subparsers.add_parser('list', help='List anime/dramas in database')
+    subp_list.add_argument('status', nargs='?', default='watching',
+                          choices=['unwatched', 'watching', 'watched', 'dropped',
+                                   'all'],
+                          help='List only shows with specific status. Default: all')
     subp_list.add_argument('--raw-alias-list', action='store_true',
                            help='Print only anime names and aliases, one per each '
                                 'line. Useful for shell completion.')

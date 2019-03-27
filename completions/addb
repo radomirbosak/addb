@@ -40,7 +40,7 @@ _addb () {
             return 0
             ;;
         list)
-            COMPREPLY=( $(compgen -W "-h --help --raw-alias-list --raw-alias-list-desc" -- "$cur") )
+            COMPREPLY=( $(compgen -W "-h --help --raw-alias-list --raw-alias-list-desc unwatched watching watched dropped all" -- "$cur") )
             return 0
             ;;
         add|edit)

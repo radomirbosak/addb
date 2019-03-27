@@ -44,6 +44,7 @@ complete -c addb -n '__fish_use_subcommand' -xa edit --description "Edit anime/d
 
 complete -c addb -n '__fish_addb_alias_ok' -a "(command addb list --raw-alias-list-desc)"
 
+complete -c addb -n 'contains list (commandline -poc)' -a "unwatched watching watched dropped all"
 complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list --description 'Helper function for bash completion'
 complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list-desc --description 'Helper function for fish completion'
 
