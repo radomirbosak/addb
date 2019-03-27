@@ -27,6 +27,7 @@ def watch(args):
         print('There is no watch url associated with this anime.')
         sys.exit(1)
 
+    print(f'Last watched episode: {anime["progress"]}')
     webbrowser.open(anime['watch_url'])
 
 
