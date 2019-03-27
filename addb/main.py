@@ -115,6 +115,8 @@ def main():
     elif args.action == 'edit':
         edit(args)
     elif args.action in ['list', None]:
+        if args.action is None:
+            args.status = 'watching'
         list_db(args)
 
 
