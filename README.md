@@ -30,11 +30,20 @@ $ addb export
 List anime/drama
 ```console
 $ addb  # or
-$ addb list
+$ addb list  # or
+$ addb list watching
 nr.  Name                              Status     Progress
 ===  ================================  =========  ========
 1.   Yamada-kun and the Seven Witches  watching   11
 2.   Keijo!!!!!!!!                     watching   4
+
+$ addb list all
+nr.  Name                              Status     Progress
+===  ================================  =========  ========
+1.   Yamada-kun and the Seven Witches  watching   11
+2.   Keijo!!!!!!!!                     watching   4
+3.   Hataraku Saibou                   watched    13
+4.   Kemurikusa                        unwatched  0
 ```
 
 Use a different database/cache file
