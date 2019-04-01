@@ -42,7 +42,7 @@ complete -c addb -n '__fish_use_subcommand' -xa remove --description "Remove ani
 complete -c addb -n '__fish_use_subcommand' -xa update --description "Set the number of watched episodes"
 complete -c addb -n '__fish_use_subcommand' -xa edit --description "Edit anime/drama properties"
 
-complete -c addb -n '__fish_addb_alias_ok' -a "(command addb list --raw-alias-list-desc)"
+complete -c addb -n '__fish_addb_alias_ok' -a "(command addb list all --raw-alias-list-desc)"
 
 complete -c addb -n 'contains list (commandline -poc)' -a "unwatched watching watched dropped all"
 complete -c addb -n 'contains list (commandline -poc)' -l raw-alias-list --description 'Helper function for bash completion'

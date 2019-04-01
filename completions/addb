@@ -24,7 +24,7 @@ _addb () {
             return 1
             ;;
         watch|remove|update|edit)
-            COMPREPLY=( $(compgen -W "$(addb list --raw-alias-list)" -- "$cur") )
+            COMPREPLY=( $(compgen -W "$(addb list all --raw-alias-list)" -- "$cur") )
             return 0
             ;;
         --status)
