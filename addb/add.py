@@ -15,7 +15,7 @@ def add(args):
         print(f'Error: The provided name/alias is already used!')
         sys.exit(1)
 
-    nowstr = get_now_utc_str().isoformat()
+    nowstr = get_now_utc().isoformat()
 
     # no name conflict, let's move on
     new_entry = {
