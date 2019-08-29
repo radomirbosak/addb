@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .cache import load_cache
+from .common import get_min_utc
 
 
 MAX_NAME_LENGTH = 42
@@ -37,6 +38,11 @@ def list_db(args):
             for alias in anime['alias']:
                 print(alias + description)
         return
+
+    # sort table by last_updated_at
+    def safe_last_updated_at(item):
+        return item.get('last_updated_at', get_min_utc().isoformat())
+    cache['anime'].sort(key=safe_last_updated_at, reverse=True)
 
     # print a nice table
     table = []

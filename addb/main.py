@@ -8,6 +8,7 @@ import webbrowser
 from .__version__ import __version__
 from .cli import parse_args
 from .cache import load_cache, find_anime, save_cache
+from .common import get_now_utc, get_min_utc
 from .list_db import list_db
 from .add import add
 
@@ -54,6 +55,9 @@ def update(args):
         anime['progress'] += 1
     else:
         anime['progress'] = int(args.episode)
+
+    # update modify date
+    anime['last_updated_at'] = get_now_utc().isoformat()
 
     anime_name = anime['full_name'] or anime['name']
 

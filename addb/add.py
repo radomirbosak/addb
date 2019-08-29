@@ -4,6 +4,7 @@ import sys
 from itertools import chain
 
 from .cache import load_cache, save_cache
+from .common import get_now_utc
 
 
 def add(args):
@@ -14,6 +15,8 @@ def add(args):
         print(f'Error: The provided name/alias is already used!')
         sys.exit(1)
 
+    nowstr = get_now_utc_str().isoformat()
+
     # no name conflict, let's move on
     new_entry = {
         "name": args.name,
@@ -22,6 +25,8 @@ def add(args):
         "progress": 0,
         "full_name": args.full_name,
         "watch_url": args.watch_url,
+        "created_at": nowstr,
+        "last_updated_at": nowstr,
     }
 
     cache['anime'].append(new_entry)
