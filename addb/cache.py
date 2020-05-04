@@ -3,7 +3,7 @@
 import os
 import json
 
-from xdg.BaseDirectory import xdg_cache_home
+from xdg.BaseDirectory import xdg_data_home
 
 
 def _determine_cache_filename(filename=None):
@@ -12,12 +12,12 @@ def _determine_cache_filename(filename=None):
 
     Args:
         filename (str): Is specified, use this filename.
-            Otherwise $XDG_CACHE_HOME/addb.json is used.
+            Otherwise $XDG_DATA_HOME/addb.json is used.
     """
     if filename is not None:
         return filename
 
-    return os.path.join(xdg_cache_home , 'addb.json')
+    return os.path.join(xdg_data_home , 'addb.json')
 
 
 def load_cache(filename=None):

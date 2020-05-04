@@ -9,7 +9,7 @@ def parse_args():
     parser.add_argument('-V', '--version', action='store_true',
                         help='show program version')
     parser.add_argument('-C', '--cache', help='specify cache file. '
-                        'Default is addb.json in the $XDG_CACHE_HOME directory.')
+                        'Default is addb.json in the $XDG_DATA_HOME directory.')
 
     subparsers = parser.add_subparsers(dest='action')
 
