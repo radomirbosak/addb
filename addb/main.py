@@ -8,7 +8,7 @@ import webbrowser
 from .__version__ import __version__
 from .cli import parse_args
 from .cache import load_cache, find_anime, save_cache
-from .common import get_now_utc, get_min_utc
+from .common import get_now_utc, get_min_utc, update_episode_urls
 from .list_db import list_db
 from .add import add
 
@@ -28,8 +28,16 @@ def watch(args):
         print('There is no watch url associated with this anime.')
         sys.exit(1)
 
+    # support custom episode-based urls
+    url = anime['watch_url']
+    if 'episode_url' in anime:
+        episode_urls = anime['episode_url']
+        next_episode = anime["progress"] + 1
+        if len(episode_urls) >= next_episode:
+            url = episode_urls[next_episode - 1]
+
     print(f'Last watched episode: {anime["progress"]}')
-    webbrowser.open(anime['watch_url'])
+    webbrowser.open(url)
 
 
 def remove(args):
@@ -89,6 +97,9 @@ def edit(args):
     if args.watch_url is not None:
         anime['watch_url'] = args.watch_url
         print(f'Watch url changed to: {args.watch_url}')
+
+    if args.update_episode_urls:
+        update_episode_urls(anime)
 
     save_cache(cache, args.cache)
 

@@ -4,7 +4,7 @@ import sys
 from itertools import chain
 
 from .cache import load_cache, save_cache
-from .common import get_now_utc
+from .common import get_now_utc, update_episode_urls
 
 
 def add(args):
@@ -28,6 +28,9 @@ def add(args):
         "created_at": nowstr,
         "last_updated_at": nowstr,
     }
+
+    if args.update_episode_urls:
+        update_episode_urls(new_entry)
 
     cache['anime'].append(new_entry)
 

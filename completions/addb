@@ -44,7 +44,7 @@ _addb () {
             return 0
             ;;
         add|edit)
-            COMPREPLY=( $(compgen -W "-h --help --full-name --alias --status --watch-url" -- "$cur") )
+            COMPREPLY=( $(compgen -W "-h --help --full-name --alias --status --watch-url --update-episode-urls" -- "$cur") )
             return 0
             ;;
         *)

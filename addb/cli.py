@@ -40,6 +40,8 @@ def parse_args():
                           choices=['unwatched', 'watching', 'watched', 'dropped'],
                           help='Anime/drama status')
     subp_add.add_argument('--watch-url', help='Url with the anime/drama stream')
+    subp_add.add_argument('--update-episode-urls', action='store_true',
+                          help='Download episode urls to open the correct watch link')
 
     # watch command
     subp_watch = subparsers.add_parser('watch', help='Open the anime/drama watch-url '
@@ -70,5 +72,7 @@ def parse_args():
                           choices=['unwatched', 'watching', 'watched', 'dropped'],
                           help='Anime/drama status')
     subp_edit.add_argument('--watch-url', help='Url with the anime/drama stream')
+    subp_edit.add_argument('--update-episode-urls', action='store_true',
+                           help='Download episode urls to open the correct watch link')
 
     return parser.parse_args()

@@ -52,10 +52,12 @@ complete -c addb -n 'contains add (commandline -poc)' -l full-name --description
 complete -c addb -n 'contains add (commandline -poc)' -l alias --description 'Alternative name'
 complete -c addb -n 'contains add (commandline -poc)' -l status --description 'Anime/drama status'
 complete -c addb -n 'contains add (commandline -poc)' -l watch-url --description 'Url with anime/drama stream'
+complete -c addb -n 'contains add (commandline -poc)' -l update-episode-urls --description 'Download episode urls'
 
 complete -c addb -n 'contains edit (commandline -poc)' -l full-name --description 'Full anime/drama name'
 complete -c addb -n 'contains edit (commandline -poc)' -l alias --description 'Alternative name'
 complete -c addb -n 'contains edit (commandline -poc)' -l status --description 'Anime/drama status'
 complete -c addb -n 'contains edit (commandline -poc)' -l watch-url --description 'Url with anime/drama stream'
+complete -c addb -n 'contains edit (commandline -poc)' -l update-episode-urls --description 'Download episode urls'
 
 complete -c addb -n '__fish_addb_after_status' -a "unwatched watching watched dropped"
