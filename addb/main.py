@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import re
 import sys
 import json
 import webbrowser
@@ -29,12 +30,21 @@ def watch(args):
         sys.exit(1)
 
     # support custom episode-based urls
+    next_episode = anime["progress"] + 1
     url = anime['watch_url']
     if 'episode_url' in anime:
         episode_urls = anime['episode_url']
-        next_episode = anime["progress"] + 1
         if len(episode_urls) >= next_episode:
             url = episode_urls[next_episode - 1]
+
+    # animeseries.io episode urls are straightforward
+    if '.animeseries.io' in anime['watch_url']:
+        if '/watch/' in anime['watch_url']:
+            animeseries_id = re.search('/watch/([a-zA-Z\\-]+?)-episode-[0-9]+\\.html', anime['watch_url']).group(1)
+        elif '/watch/' in anime['watch_url']:
+            animeseries_id = re.search('/anime/([a-zA-Z\\-]+?)\\.html', anime['watch_url']).group(1)
+        template = 'https://www4.animeseries.io/watch/{name}-episode-{epino}.html'
+        url = template.format(name=animeseries_id, epino=next_episode)
 
     print(f'Last watched episode: {anime["progress"]}')
     webbrowser.open(url)
