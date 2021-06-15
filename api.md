@@ -27,7 +27,7 @@ $ addb add yamada --alias yamadakun --full-name "Yamada-kun and the Seven Witche
 
 Edit anime/drama properties
 ```console
-$ addb edit yamada --watch-url "https://www9.9anime.is/watch/yamada-kun-and-the-seven-witches.kw99" 
+$ addb edit yamada --watch-url "https://..."
 ```
 
 Remove anime/drama
@@ -57,7 +57,7 @@ $ addb export
 		"full_name": "Yamada-kun and the Seven Witches",
 		"status": "watching",
 		"progress": 11,
-		"watch_url": "https://www9.9anime.is/watch/yamada-kun-and-the-seven-witches.kw99"
+		"watch_url": "https://..."
 	}
 ]
 ```

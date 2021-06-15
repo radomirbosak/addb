@@ -21,7 +21,7 @@ $ addb export
             "full_name": "Yamada-kun and the Seven Witches",
             "status": "watching",
             "progress": 11,
-            "watch_url": "https://www9.9anime.is/watch/yamada-kun-and-the-seven-witches.kw99"
+            "watch_url": "https://..."
         }
     ]
 }
@@ -60,7 +60,7 @@ $ addb add yamada \
     --full-name "Yamada-kun and the Seven Witches" \
     --status watching \
     --alias yamadakun --alias yamada-kun \
-    --watch-url "https://www1.9anime.to/watch/yamada-kun-and-the-seven-witches.kw99"
+    --watch-url "https://..."
 ```
 
 Open anime/drama in browser
